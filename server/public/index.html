@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Server Side Calculator</title>    
+  </head>
+  <body>
+    <h1>Server Side Calculator</h1>
+    <input type='text' id='whoseJokeIn' placeholder='whose joke' />
+    <input type='text' id='questionIn' placeholder='question' />
+    <input type='text' id='punchlineIn' placeholder='punchline' />
+    <button onclick="submitForm(event)" id='addJokeButton'>Add Joke</button>
+    <h2>Jokes:</h2>
+    <div id='outputDiv'>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+  </body>
+</html>
