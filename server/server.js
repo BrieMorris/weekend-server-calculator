@@ -1,14 +1,21 @@
-const express = require( 'express' );
+// Require express - gives us a function
+const express = require('express');
+const calculations = [];
+
+// Create an instance of express by calling the function returned above - gives us an object
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
-app.use(express.json());
+// express static file serving - public is the folder name
+app.use(express.static('server/public'));
 
-
-
-
-
-
-app.listen(port, function() { 
+// Start up our server
+app.listen(port, () => {
   console.log('listening on port', port);
+});
+
+app.post('/calculator' , (req, res) => {
+  calculations.push(req.body);
+  res.sendStatus(200);
+
 })

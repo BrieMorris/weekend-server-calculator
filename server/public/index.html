@@ -6,11 +6,15 @@
   </head>
   <body>
     <h1>Server Side Calculator</h1>
-    <input type='text' id='whoseJokeIn' placeholder='whose joke' />
-    <input type='text' id='questionIn' placeholder='question' />
-    <input type='text' id='punchlineIn' placeholder='punchline' />
-    <button onclick="submitForm(event)" id='addJokeButton'>Add Joke</button>
-    <h2>Jokes:</h2>
+    <input type='number' id='inputOne' placeholder='' />
+    <button class="operator" value="+">+</button>
+    <button class="operator" value="-">-</button>
+    <button class="operator" value="*">*</button>
+    <button class="operator" value="/">/</button>
+    <input type='number' id='inputTwo' placeholder='' />
+    <button onclick="handleSubmit(event)" id='equal'>=</button>
+    <button onclick="" id='clear'>c</button>
+    <h2>Answer</h2>
     <div id='outputDiv'>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
