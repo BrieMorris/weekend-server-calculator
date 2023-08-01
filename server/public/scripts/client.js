@@ -15,14 +15,18 @@ function handleSubmit(event){
     firstInput: firstInput,
     secondInput: secondInput,
     operator: operator
-
-  }
+    }
   console.log(inputToAdd);
-}
 
+  //send calculation to server
+  axios.post('/calculations', inputToAdd).then((response) => {
+    }).catch((error) => {
+      console.log(error);
+      alert('something went wrong');
+    })
+} // end handleSubmit
 
 let operator;
-
 const operatorButtons = document.querySelectorAll(".operator");
 
 // Add click event listeners to operator buttons
