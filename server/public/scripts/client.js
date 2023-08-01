@@ -1,30 +1,40 @@
 console.log('client.js');
+let output = 0;
 
 //this is where you will put the fuctions 
 
-
+// shows inputs on Dom and inputs and operators into objects runs on click =
 function handleSubmit(event){
   event.preventDefault();
+  console.log('in handlesubmit');
   let firstInput = document.querySelector('#inputOne').value;
+  console.log(firstInput);
   let secondInput = document.querySelector('#inputTwo').value;
-  //let add = document.querySelector('#addition').value;
-  //let subtract = document.querySelector('#subtraction').value;
-  //let times = document.querySelector('#multiplication').value;
-  //let divide = document.querySelector('#division').value;
+  console.log(secondInput);
   let inputToAdd = {
     firstInput: firstInput,
+    operator: operator,
     secondInput: secondInput,
-    operator: operator
     }
   console.log(inputToAdd);
 
+//  output === Number(inputToAdd);
+//     document.querySelector('#outputDiv').innerHTML = Number(inputToAdd);
+//     console.log(output);
+
   //send calculation to server
-  axios.post('/calculations', inputToAdd).then((response) => {
+  axios.post('/', inputToAdd).then((response) => {
+    console.log(response)
     }).catch((error) => {
       console.log(error);
       alert('something went wrong');
     })
 } // end handleSubmit
+
+// function calculatingOutput(num1, num2){
+
+
+// }
 
 let operator;
 const operatorButtons = document.querySelectorAll(".operator");

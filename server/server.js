@@ -20,9 +20,25 @@ app.listen(port, () => {
   console.log('listening on port', port);
 });
 
-app.post('/calculations' , (req, res) => {
-  console.log(req.body);
-  calculations.push(req.body);
+// tells the server the route
+app.get('/'), (req, res) => {
+  res.send(calculations)
+}
+
+// send to calcularions to server and calculates the equation
+app.post('/' , (req, res) => {
+  let calculations = req.body;
+  console.log(calculations);
+  let firstInput = Number(calculations.firstInput);
+  let operator = calculations.operator;
+  let secondInput = Number(calculations.secondInput);
+  let result = 0;
+  switch(operator) {
+    case '+': result = firstInput + secondInput; break;
+    case '-': result = firstInput - secondInput; break;
+    case  '*': result = firstInput * secondInput; break;
+    case '/': result = firstInput / secondInput; break;
+} 
+  calculations.result = result;
   res.sendStatus(200);
-  
 })
