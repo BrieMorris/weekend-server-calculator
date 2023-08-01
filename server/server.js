@@ -21,9 +21,11 @@ app.listen(port, () => {
 });
 
 // tells the server the route
-app.get('/'), (req, res) => {
+app.get('/', (req, res) => {
+  console.log('calculations sent to client', calculations);
   res.send(calculations)
-}
+  
+})
 
 // send to calcularions to server and calculates the equation
 app.post('/' , (req, res) => {
@@ -40,5 +42,6 @@ app.post('/' , (req, res) => {
     case '/': result = firstInput / secondInput; break;
 } 
   calculations.result = result;
+  console.log(calculations);
   res.sendStatus(200);
 })

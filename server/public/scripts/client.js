@@ -18,20 +18,34 @@ function handleSubmit(event){
     }
   console.log(inputToAdd);
 
-//  output === Number(inputToAdd);
-//     document.querySelector('#outputDiv').innerHTML = Number(inputToAdd);
-//     console.log(output);
+  output === Number(inputToAdd);
+  document.querySelector('#outputDiv').innerHTML = Number(inputToAdd);
+  console.log(output);
+
 
   //send calculation to server
   axios.post('/', inputToAdd).then((response) => {
+    getOutput();
     console.log(response)
     }).catch((error) => {
       console.log(error);
       alert('something went wrong');
     })
+    
 } // end handleSubmit
 
-// function calculatingOutput(num1, num2){
+  // get route
+  function getOutput(){
+    console.log('in getOutput');
+    axios.get('/').then((response) => {
+      let outputFromServer = response.data;
+      console.log(response);
+      //renderToDOM(outputFromServer);
+    }).catch((error) => {
+    console.log(error);
+    alert('something went wrong')
+  })
+  }
 
 
 // }
