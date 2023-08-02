@@ -24,7 +24,7 @@ function handleSubmit(event){
 
 
   //send calculation to server
-  axios.post('/', inputToAdd).then((response) => {
+  axios.post('/calc', inputToAdd).then((response) => {
     getOutput();
     console.log(response)
     }).catch((error) => {
@@ -34,21 +34,24 @@ function handleSubmit(event){
     
 } // end handleSubmit
 
+// I need to call the handleSubmit
+
   // get route
   function getOutput(){
     console.log('in getOutput');
-    axios.get('/').then((response) => {
+    axios.get('/calc').then((response) => {
       let outputFromServer = response.data;
       console.log(response);
-      //renderToDOM(outputFromServer);
+      renderToDOM(outputFromServer);
     }).catch((error) => {
     console.log(error);
     alert('something went wrong')
   })
   }
 
-
-// }
+  function renderToDOM(calculations){
+    console.log(calculations);
+  }
 
 let operator;
 const operatorButtons = document.querySelectorAll(".operator");
