@@ -49,9 +49,29 @@ function handleSubmit(event){
   })
   }
 
-  function renderToDOM(calculations){
-    console.log(calculations);
+  // function renderToDOM(exps){
+  //   let equation = document.querySelector('#outputDiv');
+  //   equation.innerHTML = '';
+  //   if (exps.length > 0){
+  //     for (let i = 0; i < exps.length; i++) {
+  //       equation.innerHTML += `
+  //         - ${exps[i].calculations}
+  //       `;
+  //     }
+  //   }
+  // }
+
+function renderToDOM(calculations){
+  console.log('rendering to DOM', calculations);
+  output.innerHTML = '';
+
+  for (let equation of calculations){
+    output.innerHTML += `
+      <p>${equation.firstInput} ${equation.operator} ${equation.secondInput} <p>
+    `
   }
+
+}
 
 let operator;
 const operatorButtons = document.querySelectorAll(".operator");
