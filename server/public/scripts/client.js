@@ -63,14 +63,22 @@ function handleSubmit(event){
 
 function renderToDOM(calculations){
   console.log('rendering to DOM', calculations);
-  output.innerHTML = '';
+  let history = document.querySelector('#history')
+  history.innerHTML = '';
 
   for (let equation of calculations){
-    output.innerHTML += `
-      <p>${equation.firstInput} ${equation.operator} ${equation.secondInput} <p>
+    history.innerHTML += `
+      <p>${equation.firstInput} ${equation.operator} ${equation.secondInput} = ${equation.result} <p>
     `
   }
-
+  
+  let lastCalc = calculations[calculations.length - 1];
+  let lastAnswer = lastCalc.result; 
+  
+  let outputDiv = document.querySelector('#outputDiv');
+  outputDiv.innerHTML = `Last answer: ${lastAnswer}`;
+  console.log('Last answer: ', lastAnswer); 
+ 
 }
 
 let operator;
