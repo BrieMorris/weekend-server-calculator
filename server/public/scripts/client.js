@@ -47,20 +47,9 @@ function handleSubmit(event){
     console.log(error);
     alert('something went wrong')
   })
-  }
+  } //end get route
 
-  // function renderToDOM(exps){
-  //   let equation = document.querySelector('#outputDiv');
-  //   equation.innerHTML = '';
-  //   if (exps.length > 0){
-  //     for (let i = 0; i < exps.length; i++) {
-  //       equation.innerHTML += `
-  //         - ${exps[i].calculations}
-  //       `;
-  //     }
-  //   }
-  // }
-
+// get equations and result on the DOM
 function renderToDOM(calculations){
   console.log('rendering to DOM', calculations);
   let history = document.querySelector('#history')
@@ -71,7 +60,7 @@ function renderToDOM(calculations){
       <p>${equation.firstInput} ${equation.operator} ${equation.secondInput} = ${equation.result} <p>
     `
   }
-  
+
   let lastCalc = calculations[calculations.length - 1];
   let lastAnswer = lastCalc.result; 
   
@@ -79,7 +68,7 @@ function renderToDOM(calculations){
   outputDiv.innerHTML = `Last answer: ${lastAnswer}`;
   console.log('Last answer: ', lastAnswer); 
  
-}
+}// end renderToDOM
 
 let operator;
 const operatorButtons = document.querySelectorAll(".operator");
